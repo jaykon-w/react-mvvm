@@ -1,23 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import HomeModule from "./pages/home/Home.module";
+import { Redirect, Router, Link, RouteComponentProps } from "@reach/router";
+import DigimonModule from "./pages/digimon/Digimon.module";
+
+const Route: React.FC<
+  RouteComponentProps & { children: React.ReactElement }
+> = ({ children }) => children;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <Link to="/pokemon">Pokemon</Link> &nbsp; | &nbsp;
+          <Link to="/digimon">Digimon</Link>
+        </div>
+        <Router>
+          <Route path="/digimon">
+            <DigimonModule default />
+          </Route>
+          <Route path="/pokemon">
+            <HomeModule default />
+          </Route>
+        </Router>
+        {/* <Redirect to="/" /> */}
       </header>
     </div>
   );
