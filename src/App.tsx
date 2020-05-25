@@ -1,12 +1,9 @@
+import { Link, Redirect, Router, RouteComponentProps } from "@reach/router";
 import React from "react";
 import "./App.css";
-import HomeModule from "./pages/home/Home.module";
-import { Redirect, Router, Link, RouteComponentProps } from "@reach/router";
-import DigimonModule from "./pages/digimon/Digimon.module";
 
-const Route: React.FC<
-  RouteComponentProps & { children: React.ReactElement }
-> = ({ children }) => children;
+const HomeModule = React.lazy(() => import("./pages/home/Home.module"));
+const DigimonModule = React.lazy(() => import("./pages/digimon/Digimon.module"));
 
 function App() {
   return (
@@ -16,14 +13,13 @@ function App() {
           <Link to="/pokemon">Pokemon</Link> &nbsp; | &nbsp;
           <Link to="/digimon">Digimon</Link>
         </div>
-        <Router>
-          <Route path="/digimon">
-            <DigimonModule default />
-          </Route>
-          <Route path="/pokemon">
-            <HomeModule default />
-          </Route>
-        </Router>
+        <React.Suspense fallback={<h1>Loading...</h1>}>
+          <Router>
+            <DigimonModule path="/digimon/*" />
+            <Redirect from="/" to="/pokemon/" noThrow />
+            <HomeModule path="/pokemon/*" />
+          </Router>
+        </React.Suspense>
         {/* <Redirect to="/" /> */}
       </header>
     </div>

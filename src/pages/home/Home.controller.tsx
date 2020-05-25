@@ -9,9 +9,7 @@ export class HomeController {
 
   private lastPokemonId = 1;
 
-  constructor(private apiService: IPokemonService) {
-    console.log("aki");
-  }
+  constructor(private apiService: IPokemonService) {}
 
   updatePokemon(pokemon: Pokemon) {
     this.pokemon.next(pokemon);

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { Link, RouteComponentProps } from "@reach/router";
+import React, { useEffect } from "react";
+import { Observer } from "../../lib/Observer";
 import { useProvider } from "../../lib/Provider";
 import { HomeController } from "./Home.controller";
-import { Observer } from "../../lib/Observer";
-import { RouteComponentProps, Link } from "@reach/router";
 
 type InjectedProps = {} & RouteComponentProps;
 
