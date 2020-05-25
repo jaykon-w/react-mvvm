@@ -12,8 +12,8 @@ const Home: React.FC<Props & InjectedProps> = (props) => {
   const homeController = useProvider(HomeController);
 
   useEffect(() => {
-    homeController.getPokemon(1);
-  }, []);
+    homeController.getPokemon();
+  });
 
   return (
     <div>

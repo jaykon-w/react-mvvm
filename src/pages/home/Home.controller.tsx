@@ -17,7 +17,7 @@ export class HomeController {
     this.pokemon.next(pokemon);
   }
 
-  async getPokemon(id: number) {
+  async getPokemon(id: number = this.lastPokemonId) {
     const pokemon = await this.apiService.getPokemon(id);
     this.updatePokemon(pokemon);
     this.lastPokemonId = id;
