@@ -1,11 +1,12 @@
 import { Link, Redirect, Router, RouteComponentProps } from "@reach/router";
 import React from "react";
-import "./App.css";
+import "./App.component.css";
+import LoadingComponent from './shared/components/loading/Loading.component';
 
-const HomeModule = React.lazy(() => import("./pages/home/Home.module"));
-const DigimonModule = React.lazy(() => import("./pages/digimon/Digimon.module"));
+const PokemonModule = React.lazy(() => import("./modules/pages/pokemon/Pokemon.module"));
+const DigimonModule = React.lazy(() => import("./modules/pages/digimon/Digimon.module"));
 
-function App() {
+const App: React.FC<RouteComponentProps> = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -13,14 +14,16 @@ function App() {
           <Link to="/pokemon">Pokemon</Link> &nbsp; | &nbsp;
           <Link to="/digimon">Digimon</Link>
         </div>
-        <React.Suspense fallback={<h1>Loading...</h1>}>
+        <br />
+        <br />
+        <br />
+        <React.Suspense fallback={<LoadingComponent />}>
           <Router>
             <DigimonModule path="/digimon/*" />
             <Redirect from="/" to="/pokemon/" noThrow />
-            <HomeModule path="/pokemon/*" />
+            <PokemonModule path="/pokemon/*" />
           </Router>
         </React.Suspense>
-        {/* <Redirect to="/" /> */}
       </header>
     </div>
   );

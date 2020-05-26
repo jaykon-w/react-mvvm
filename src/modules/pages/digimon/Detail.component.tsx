@@ -1,25 +1,26 @@
 import { RouteComponentProps } from "@reach/router";
 import React, { useEffect } from "react";
-import { Observer } from "../../lib/Observer";
-import { useProvider } from "../../lib/Provider";
+import { Observer } from "../../../lib/Observer";
+import { useProvider } from "../../../lib/Provider";
 import { DigimonController } from "./Digimon.controller";
+import LoadingComponent from '../../../shared/components/loading/Loading.component';
 
-type InjectedProps = { name?: string } & RouteComponentProps;
+type InjectedProps = { name: string };
 
-interface Props {}
+type Props = {} & RouteComponentProps
 
 const Detail: React.FC<Props & InjectedProps> = (props) => {
   const digimonController = useProvider(DigimonController);
 
   useEffect(() => {
-    digimonController.getDigimon(props.name ?? "");
+    digimonController.getDigimon(props.name);
   }, []);
 
   return (
     <div>
       <Observer
         stream={digimonController.digimon}
-        default={<h1>Loading...</h1>}
+        default={<LoadingComponent />}
       >
         {(digimon) => {
           return (
@@ -36,4 +37,4 @@ const Detail: React.FC<Props & InjectedProps> = (props) => {
   );
 };
 
-export default Detail;
+export default Detail as React.FC<Props>;

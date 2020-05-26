@@ -1,5 +1,5 @@
 import { ReplaySubject } from "rxjs";
-import { Digimon, IDigimonService } from "../../service/digimon/digimon.service.interface";
+import { Digimon, IDigimonService } from "../../../shared/services/digimon/digimon.service.interface";
 
 export class DigimonController {
   digimon = new ReplaySubject<Digimon>(1);
