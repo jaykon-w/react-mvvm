@@ -31,16 +31,18 @@ const Attributes: React.FC<Props & InjectedProps> = (props) => {
           return (
             <div>
               <h3>Atributos</h3>
-              {pokemon.stats.map((e, i) => (
-                <div key={i}>
-                  <div style={flexContainer}>
-                    <div>{e.stat.name}:</div>
-                    <div style={{ width: "60px" }}></div>
-                    <div>{e.base_stat}</div>
+              {pokemon.stats
+                .map((e, i) => (
+                  <div key={i}>
+                    <div style={flexContainer}>
+                      <div>{e.stat.name}:</div>
+                      <div style={{ width: "60px" }}></div>
+                      <div>{e.base_stat}</div>
+                    </div>
+                    <hr />
                   </div>
-                  <hr />
-                </div>
-              ))}
+                ))
+                .reverse()}
             </div>
           );
         }}
