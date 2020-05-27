@@ -2,7 +2,7 @@ import React from "react";
 import { Observer } from "../../../../lib/Observer";
 import { useProvider } from "../../../../lib/Provider";
 import { PokemonController } from "../Pokemon.controller";
-import LoadingComponent from '../../../../shared/components/loading/Loading.component';
+import LoadingComponent from "../../../../shared/components/loading/Loading.component";
 
 type InjectedProps = {};
 
@@ -32,14 +32,14 @@ const Attributes: React.FC<Props & InjectedProps> = (props) => {
             <div>
               <h3>Atributos</h3>
               {pokemon.stats.map((e, i) => (
-                <>
-                  <div key={i} style={flexContainer}>
+                <div key={i}>
+                  <div style={flexContainer}>
                     <div>{e.stat.name}:</div>
                     <div style={{ width: "60px" }}></div>
                     <div>{e.base_stat}</div>
                   </div>
                   <hr />
-                </>
+                </div>
               ))}
             </div>
           );
