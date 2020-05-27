@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
+import { tap, share } from "rxjs/operators";
 
 interface Props<T> {
   stream: Observable<T>;
@@ -15,5 +16,8 @@ export function Observer<T>(props: Props<T>): React.ReactElement | null {
     return () => sub.unsubscribe();
   }, []);
 
-  return val !== undefined ? props.children(val) : (props.default || null);
-};
+  return useMemo(
+    () => (val !== undefined ? props.children(val) : props.default || null),
+    [val]
+  );
+}
