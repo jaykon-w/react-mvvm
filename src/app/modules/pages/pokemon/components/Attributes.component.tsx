@@ -1,6 +1,6 @@
 import React from "react";
-import { Observer } from "../../../../lib/Observer";
-import { useProvider } from "../../../../lib/Provider";
+import { Observer } from "../../../../../lib/Observer";
+import { useProvider } from "../../../../../lib/Provider";
 import { PokemonController } from "../Pokemon.controller";
 import LoadingComponent from "../../../../shared/components/loading/Loading.component";
 

@@ -1,6 +1,6 @@
 import { RouteComponentProps, Router } from "@reach/router";
 import React, { useMemo } from "react";
-import { Provider } from "../../../lib/Provider";
+import { Provider } from "../../../../lib/Provider";
 import { PokemonService } from "../../../shared/services/pokemon/pokemon.service";
 import { IPokemonService } from "../../../shared/services/pokemon/pokemon.service.interface";
 import Detail from "./Detail.component";

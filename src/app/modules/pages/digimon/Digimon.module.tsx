@@ -1,6 +1,6 @@
 import { RouteComponentProps, Router } from "@reach/router";
 import React, { useMemo } from "react";
-import { Provider } from "../../../lib/Provider";
+import { Provider } from "../../../../lib/Provider";
 import { DigimonService } from "../../../shared/services/digimon/digimon.service";
 import Digimon from "./Digimon.component";
 import { IDigimonService } from "../../../shared/services/digimon/digimon.service.interface";

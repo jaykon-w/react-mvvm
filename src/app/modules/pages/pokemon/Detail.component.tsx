@@ -1,7 +1,7 @@
 import { RouteComponentProps } from "@reach/router";
 import React, { useEffect } from "react";
-import { Observer } from "../../../lib/Observer";
-import { useProvider } from "../../../lib/Provider";
+import { Observer } from "../../../../lib/Observer";
+import { useProvider } from "../../../../lib/Provider";
 import { PokemonController } from "./Pokemon.controller";
 import Attributes from './components/Attributes.component';
 import LoadingComponent from '../../../shared/components/loading/Loading.component';
